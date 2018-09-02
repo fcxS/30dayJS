@@ -1,0 +1,56 @@
+html {
+  font-size: 10px;
+  background: url(https://i.redditmedia.com/W096Qg53stnJPe5S-zOmUc-kl7_dkc-o0yZcmnZSwz4.jpg?fit=crop&crop=faces%2Centropy&arh=2&w=960&s=ac5865e39267f4188df840e0f983d6a4) bottom center;
+  background-size: cover;
+}
+body,html {
+  margin: width/2;
+  padding: 0;
+  font-family: sans;
+}
+
+.keys {
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.key {
+  border: .4rem solid green;
+  border-radius: .5rem;
+  margin: 1rem;
+  font-size: 1.5rem;
+  padding: 1rem .5rem;
+  transition: all .07s ease;
+  width: 10rem;
+  text-align: center;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  text-shadow: 0 0 .5rem green;
+}
+
+.playing {
+  transform: scale(1.3);
+  border-color: blue;
+  box-shadow: 0 0 1rem blue;
+}
+
+kbd {
+  display: inline-block;
+  font-size: 4rem;
+}
+
+.sound {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  color: #ffc600;
+}
+
+.Welcome {
+  font-size: 10px;
+  color: greenyellow;
+
+}
