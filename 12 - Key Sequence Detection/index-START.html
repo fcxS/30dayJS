@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+  <h1>Key Detection</h1>
+  <h2>Are you ready?<span class="h2">:)</span></h2>
+  <div id="image">
+    <img id="imagen" src="https://i.imgur.com/bJ0oM0Pl.jpg" style="display:center">
+    <img id="imagen1" src="https://i.redditmedia.com/xcp09xh8KeanW0aewxQbjVkqz398doj9EYjzWmSjhAM.jpg?fit=crop&crop=faces%2Centropy&arh=2&w=640&s=2c1804a70dae994e4e7407d8a3739e53" style="display:none">
+
+  </div>
+ 
+  <style>
+    body{
+      background:black;
+      text-align: center;
+      color: white;
+      font-family: 'helvetica neue', sans-serif;
+      font-weight: 100;
+      font-size: 50px;
+    }
+    image{
+      transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+  </style>
+<script>
+  const pressed = [];
+  const secretCode = 'facundin';    // averiguar como hacer para tener esto en otro lado
+    window.addEventListener('keyup', (e) =>{
+    console.log(e.key);
+    pressed.push(e.key); // agregar todas las teclas a un arreglo
+    pressed.splice(-secretCode.length -1,pressed.length - secretCode.length); // recorre de atras para adelante el arreglo para quedarse con los ultimo que llegan e ir eliminando los primeros
+    if(pressed.join('').includes(secretCode)){
+      console.warn('NOW RUN');
+      changeImage(imagen); // solamente le cambia el valor de display a imagen1
+      eliminarImg();     // elimina el elemento que tiene la primera imagen
+      
+    }
+    console.log(pressed);
+  });
+  function changeImage(a){
+    document.getElementById("imagen1").style = "block";
+  }
+  function eliminarImg(){
+    var elem = document.getElementById("imagen");
+    elem.parentNode.removeChild(elem);
+  }
+  
+</script>
+</body>
+</html>
