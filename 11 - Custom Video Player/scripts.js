@@ -6,7 +6,7 @@ const progressBar = player.querySelector('.progress__filled');
 const toggle = player.querySelector('.toggle'); 
 const skipButtons = player.querySelectorAll('[data-skip]');
 const ranges = player.querySelectorAll('.player__slider'); 
-const fullScreen = player.querySelector('.player__button');
+//const fullScreen = player.querySelector('.player__button');
 
 
 //hacer las funciones
@@ -35,9 +35,9 @@ function scrub(e){
     video.currentTime = scrubTime;
     //console.log(e);
 }
-function agrandar(){
-    console.log("fulling")
-}
+// function goFullScreen(){
+//     console.log("fulling")
+// }
 
 //conectar todo
 
@@ -56,4 +56,4 @@ progress.addEventListener('click', scrub);
 progress.addEventListener('mousemove', (e) => mousedown && scrub(e));
 progress.addEventListener('mousedown',() => mouseDown= true);
 progress.addEventListener('mouseup',() => mouseDown= false);
-fullScreen.addEventListener('click', agrandar);
+//fullScreen.addEventListener('click', goFullScreen);
