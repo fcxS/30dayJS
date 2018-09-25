@@ -1,6 +1,6 @@
 html {
   box-sizing: border-box;
-  background:#eeeeee;
+  background: white;
   font-family:'helvetica neue';
   font-size: 20px;
   font-weight: 200;
@@ -15,7 +15,7 @@ body {
 .site-wrap {
   max-width: 700px;
   margin: 70px auto;
-  background:white;
+  background :url=("https://i.imgur.com/Xrr5P6gl.jpg") fill;
   padding:40px;
   text-align: justify;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.05);
@@ -131,13 +131,13 @@ nav a {
 
 li {
   font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
-  border-bottom: 1px solid #ccc;
+  
 }
 li:last-child {
   border: none;
 }
 
-li a {
+/*li a {
   text-decoration: none;
   color: #000;
   display: block;
@@ -149,10 +149,11 @@ li a {
   -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
   transition: font-size 0.3s ease, background-color 0.3s ease;
 
-  /*
-  puse esto para poder manejar la lista de recomendaciones , pero termine cambiando el primer UL LI , preguntar como hacer para seleccionar uno y no el otro.
-  */
-}
+  
+}*/
+                      /*
+                      puse esto para poder manejar la lista de recomendaciones , pero termine cambiando el primer UL LI , preguntar como hacer para seleccionar uno y no el otro.
+                      */
 
 li a:hover {
   font-size: 30px;
