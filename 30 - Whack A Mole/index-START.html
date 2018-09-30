@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Whack A Mole!</title>
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <h1>Whack-a-mole! <span class="score">0</span></h1>
+  <div class="btn">
+    <img src="https://melbournechapter.net/images250_/mole-clipart.png">
+    <input onclick="startGame()" type="button" class="button1" value="PLAY!" />
+    <input onclick="timeUp=true" type="button" class="button2" value="STOP!" />
+    <input onclick="addDif()" type="button" class="button3" value="WANT MOR SPID?" />
+    </a>
+  </div>
+
+
+
+
+  <div class="game">
+    <div class="hole hole1">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole2">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole3">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole4">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole5">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole6">
+      <div class="mole"></div>
+    </div>
+  </div>
+
+  <script>
+    const holes = document.querySelectorAll('.hole');
+    const scoreBoard = document.querySelector('.score');
+    const moles = document.querySelectorAll('.mole');
+    let lastHole;
+    let timeUp = false;
+    let score = 0;
+    let isPlaying = false;
+    let time = randTime(200, 1000);
+
+
+    function randTime(min, max) {
+      return Math.round(Math.random() * (max - min) + min);
+    }
+
+    function randHole(holes) {
+      const idx = Math.floor(Math.random() * holes.length);
+      const hole = holes[idx];
+      if (hole === lastHole) {
+        //console.log("Es el mismo , too hard to do stuff with YA");
+        return randHole(holes);
+      }
+      lastHole = hole;
+      return hole;
+    }
+
+    function peep() {
+      time;
+      const hole = randHole(holes);
+      hole.classList.add('up');
+      setTimeout(() => {
+        hole.classList.remove('up');
+        if (!timeUp) peep();
+      }, time);
+      //isPlaying=false;
+    }
+
+    function startGame() {
+      scoreBoard.textContent = 0;
+      timeUp = false;
+      score = 0;
+      if(isPlaying){
+        console.log("estas jugando , no podes apretar play 2 veces");
+      }else{
+        peep();
+        setTimeout(() => timeUp = true, 10000);
+        //isPlaying=True;
+      }
+    }
+
+    function bonk(e) {
+      if (!e.isTrusted) return; // haciendo clicks desde js
+      score++;
+      this.classList.remove('up');
+      scoreBoard.textContent = score;
+    }
+    
+    function addDif(){
+      time = randTime(50,550);
+    }
+    moles.forEach(mole => mole.addEventListener('click', bonk));
+  </script>
+</body>
+
+</html>
